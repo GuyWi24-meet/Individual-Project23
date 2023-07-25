@@ -1,15 +1,4 @@
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
-}
 
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
 h1 {
     color: #333;
 }
@@ -130,4 +119,39 @@ input[type="submit"]:hover {
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+/* style.css */
+
+/* ... Your existing CSS styles ... */
+
+.suggestions-list {
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.suggestions-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.suggestions-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+.suggestions-list form {
+    display: inline;
+    margin-left: 10px;
+}
+
+/* Optional: Hover effect for the delete button */
+.suggestions-list form:hover {
+    cursor: pointer;
+    background-color: #f2f2f2;
 }

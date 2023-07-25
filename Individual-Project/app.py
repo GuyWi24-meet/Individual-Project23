@@ -55,7 +55,7 @@ def signup():
         try:
             auth.create_user_with_email_and_password(username, password)
             session['logged_in'] = True  # Set the session status here
-            return redirect(url_for('dashboard'))
+            return render_template('dashboard.html')
         except:
             error = "Error creating the account. Please try again."
             return render_template('signup.html', error=error)
@@ -80,13 +80,6 @@ def dashboard():
 
     return render_template('dashboard.html', suggestions=suggestions_list, flag = is_logged_in())
 
-@app.route('/delete_suggestion/<string:suggestion_id>', methods=['POST'])
-def delete_suggestion(suggestion_id):
-    if not is_logged_in():
-        return redirect(url_for('login'))
-
-    firebase_db.child('flavor_suggestions').child(suggestion_id).remove()
-    return redirect(url_for('dashboard'))
 # Logout
 @app.route('/logout')
 def logout():
