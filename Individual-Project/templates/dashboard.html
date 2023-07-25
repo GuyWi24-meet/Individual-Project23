@@ -1,0 +1,58 @@
+<!-- dashboard.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rogalachem - Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .pictures {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 600 px;
+            gap: 20px;
+            margin: 0 auto;
+        }
+        .pictures img {
+            width:100%;
+            height: auto;
+            border-radius: 5 px;
+        }
+    </style>
+
+</head>
+<body>
+
+    {% if flag %}
+    <h1>Welcome to Your Dashboard</h1>
+    <!-- Add pictures or other content here -->
+    <div class="pictures">
+        <img src="{{ url_for('static', filename='picture1.jpeg') }}" alt="Picture 1">
+        <img src="{{ url_for('static', filename='picture2.jpeg') }}" alt="Picture 2">
+        <img src="{{ url_for('static', filename='picture3.jpeg') }}" alt="Picture 3">
+        <img src="{{ url_for('static', filename='picture4.jpeg') }}" alt="Picture 4">
+            <div class="suggestion-section">
+
+        <h2>Flavor Suggestions</h2>
+        <form method="POST" action="{{ url_for('dashboard') }}">
+            <input type="text" name="suggestion" value="" placeholder="Your flavor suggestion">
+            <input type="submit" value="Submit">
+        </form>
+        <ul>
+            {% for suggestion in suggestions %}
+            <li>{{ suggestion }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+        <!-- Add more pictures here if needed -->
+    </div>
+    <a href="{{ url_for('logout') }}">Logout</a>
+    {% else %}
+    <p>You need to log in to access the dashboard.</p>
+    <a href="{{ url_for('login') }}">Login</a>
+    {% endif %}
+
+</body>
+</html>
+</body>
+</html>

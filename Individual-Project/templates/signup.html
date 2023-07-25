@@ -1,0 +1,19 @@
+<!-- signup.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rogalachem - Signup</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="center">
+    <form method="POST" action="{{ url_for('signup') }}">
+        <h1>Sign Up for Rogalachem</h1>
+        <input type="text" name="email" placeholder="email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Sign Up">
+        <a href="{{ url_for('login') }}">Login</a>
+
+    </form>
+</body>
+</html>
