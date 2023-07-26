@@ -8,7 +8,7 @@
     <style>
         .pictures {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 2fr);
             max-width: 600 px;
             gap: 20px;
             margin: 0 auto;
@@ -24,7 +24,7 @@
 <body>
 
     {% if flag %}
-    <h1>Welcome to Your Dashboard</h1>
+    <h1>Welcome Our Dashboard</h1>
     <!-- Add pictures or other content here -->
     <div class="pictures">
         <img src="{{ url_for('static', filename='picture1.jpeg') }}" alt="Picture 1">
